@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pueblos Originarios de Formosa · Qom, Wichí y Pilagá</title>
+  <meta name="description" content="Recurso educativo digital sobre los pueblos Qom, Wichí y Pilagá de Formosa: mapa interactivo, galería de materiales, diccionario cultural y quiz.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%238a3b12'/%3E%3Cpath d='M32 10l16 22-16 22-16-22z' fill='%23d9a441'/%3E%3Cpath d='M32 22l8 10-8 10-8-10z' fill='%238a3b12'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="lib/leaflet/leaflet.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+  <div class="progreso" id="progreso" aria-hidden="true"></div>
+
+  <!-- ===================== NAVEGACIÓN ===================== -->
+  <header class="cabecera" id="cabecera">
+    <div class="cabecera__barra contenedor">
+      <a href="#inicio" class="marca" aria-label="Ir al inicio">
+        <svg viewBox="0 0 64 64" width="34" height="34" aria-hidden="true">
+          <rect width="64" height="64" rx="14" fill="#8a3b12"/>
+          <path d="M32 10l16 22-16 22-16-22z" fill="#d9a441"/>
+          <path d="M32 22l8 10-8 10-8-10z" fill="#8a3b12"/>
+        </svg>
+        <span>Pueblos Originarios<br><small>de Formosa</small></span>
+      </a>
+      <button class="menu-boton" id="menuBoton" aria-expanded="false" aria-controls="menuNav" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="menu" id="menuNav" aria-label="Secciones">
+        <a href="#formosa">Formosa</a>
+        <a href="#mapa">Mapa</a>
+        <a href="#pueblos">Los pueblos</a>
+        <a href="#materiales">Materiales</a>
+        <a href="#hoy">Realidad sociocultural</a>
+        <a href="#galeria-cultural">Galería cultural</a>
+        <a href="#glosario">Diccionario</a>
+        <a href="#ley">Ley 426</a>
+        <a href="#quiz">Quiz</a>
+        <a href="#cierre">Fuentes</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido">
+
+    <!-- ===================== INICIO ===================== -->
+    <section class="hero" id="inicio">
+      <div class="hero__trama" aria-hidden="true"></div>
+      <div class="contenedor hero__contenido">
+        <p class="hero__sobretitulo">Recurso Educativo Digital · Diversidad sociocultural de Formosa</p>
+        <h1 class="hero__titulo">Pueblos Originarios<br>de <em>Formosa</em></h1>
+        <p class="hero__bajada">
+          “Tres pueblos, tres lenguas, un mismo territorio.”
+        </p>
+
+        <div class="hero__pueblos">
+          <a href="#pueblos" class="chip-pueblo" data-ir-pueblo="qom" style="--c:#2f7d4f"><span></span>Qom (Toba)</a>
+          <a href="#pueblos" class="chip-pueblo" data-ir-pueblo="wichi" style="--c:#d9701c"><span></span>Wichí</a>
+          <a href="#pueblos" class="chip-pueblo" data-ir-pueblo="pilaga" style="--c:#2b5fae"><span></span>Pilagá</a>
+        </div>
+
+        <div class="hero__botones">
+          <a class="boton boton--claro" href="#mapa">Explorar el mapa</a>
+          <a class="boton boton--borde" href="#glosario">Consultar el diccionario</a>
+        </div>
+
+        <ul class="cifras" aria-label="Datos destacados">
+          <li><strong data-contar="38039" data-miles="1">0</strong><span>habitantes indígenas en Formosa</span></li>
+          <li><strong data-contar="7.21" data-decimales="2" data-sufijo=" %">0</strong><span>de la población provincial</span></li>
+          <li><strong data-contar="192">0</strong><span>comunidades de los tres pueblos</span></li>
+          <li><strong data-contar="17">0</strong><span>variantes dialectales</span></li>
+        </ul>
+        <p class="hero__fuente">Fuente: ICA (Instituto de Comunidades Aborígenes), Provincia de Formosa.</p>
+      </div>
+    </section>
+
+    <!-- ===================== FORMOSA MULTIÉTNICA ===================== -->
+    <section class="seccion" id="formosa">
+      <div class="contenedor">
+        <header class="seccion__titulo" data-aparecer>
+          <p class="sobretitulo">Para empezar</p>
+          <h2>Una provincia multiétnica y pluricultural</h2>
+          <p>
+            Formosa es un mosaico cultural donde conviven los pueblos <strong>Qom (Toba)</strong>,
+            <strong>Pilagá</strong> y <strong>Wichí</strong>. Cada uno tiene su propia lengua,
+            su organización social, su cosmovisión y su forma de vida.
+          </p>
+        </header>
+
+        <div class="tres-columnas">
+          <article class="tarjeta tarjeta--pueblo" style="--c:#2f7d4f" data-aparecer>
+            <h3>Qom (Toba)</h3>
+            <p class="tarjeta__etiqueta">Este de la provincia</p>
+            <p>Segundo pueblo en población. Se autodenominan Qom. Su lengua pertenece a la familia guaycurú.</p>
+          </article>
+          <article class="tarjeta tarjeta--pueblo" style="--c:#2b5fae" data-aparecer>
+            <h3>Pilagá</h3>
+            <p class="tarjeta__etiqueta">Centro-oeste y norte</p>
+            <p>Es el pueblo con menor población. Su lengua también es guaycurú. Son referentes de la cestería de carandillo.</p>
+          </article>
+          <article class="tarjeta tarjeta--pueblo" style="--c:#d9701c" data-aparecer>
+            <h3>Wichí</h3>
+            <p class="tarjeta__etiqueta">Oeste de la provincia</p>
+            <p>El pueblo más numeroso. Su lengua pertenece a la familia mataco-mataguayo. Trabajan el chaguar.</p>
+          </article>
+        </div>
+
+        <div class="franja-texto" data-aparecer>
+          <div>
+            <h3>Una diversidad que el Estado reconoció</h3>
+            <p>
+              Desde 1984, la provincia impulsó procesos legislativos y reformas constitucionales para
+              reconocer los derechos de los pueblos indígenas, con una importante participación de ellos
+              mismos en la formulación de las propuestas. En ese marco se sancionó la
+              <a href="#ley">Ley Integral del Aborigen N.º 426</a>, pionera en la Argentina.
+            </p>
+          </div>
+          <div class="franja-texto__nota">
+            <strong>Dos familias lingüísticas</strong>
+            <p>Qom y pilagá: <b>guaycurú</b>.<br>Wichí: <b>mataco-mataguayo</b>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== MAPA ===================== -->
+    <section class="seccion seccion--arena" id="mapa">
+      <div class="contenedor">
+        <header class="seccion__titulo" data-aparecer>
+          <p class="sobretitulo">Mapa interactivo</p>
+          <h2>¿Dónde viven los tres pueblos?</h2>
+          <p>
+            Tocá un punto del mapa para ver la información de esa zona. Podés filtrar por pueblo,
+            acercar con los botones y arrastrar el mapa para moverte.
+          </p>
+        </header>
+
+        <div class="mapa" id="mapaCaja" data-aparecer>
+          <div class="vistas-mapa" role="group" aria-label="Elegir mapa">
+            <button class="vista-mapa es-activo" data-vista-mapa="proyecto" aria-pressed="true">Mapa del proyecto</button>
+            <button class="vista-mapa" data-vista-mapa="real" aria-pressed="false">Mapa real · zoom y calles</button>
+          </div>
+          <div class="mapa__controles">
+            <div class="filtros" id="mapaFiltros" role="group" aria-label="Filtrar por pueblo">
+              <button class="filtro es-activo" data-pueblo="todos" aria-pressed="true">Todos</button>
+              <button class="filtro" data-pueblo="qom" aria-pressed="false" style="--c:#2f7d4f"><span class="punto"></span>Qom</button>
+              <button class="filtro" data-pueblo="wichi" aria-pressed="false" style="--c:#d9701c"><span class="punto"></span>Wichí</button>
+              <button class="filtro" data-pueblo="pilaga" aria-pressed="false" style="--c:#2b5fae"><span class="punto"></span>Pilagá</button>
+            </div>
+            <div class="zoom" role="group" aria-label="Zoom del mapa">
+              <button id="zoomMas" aria-label="Acercar">+</button>
+              <button id="zoomMenos" aria-label="Alejar">−</button>
+              <button id="zoomReset" aria-label="Restablecer mapa">⟲</button>
+            </div>
+          </div>
+
+          <div class="mapa__cuerpo">
+            <div class="mapa__lienzo" id="mapaLienzo">
+              <svg id="mapaSvg" viewBox="0 0 837 848" role="img"
+                   aria-label="Mapa de la provincia de Formosa, provincia multiétnica y pluricultural, con las comunidades Wichí, Toba (Qom) y Pilagá"></svg>
+              <div id="mapaReal" class="mapa-real" hidden
+                   aria-label="Mapa real de Formosa con los territorios y comunidades de los pueblos Qom, Wichí y Pilagá"></div>
+            </div>
+
+            <aside class="mapa__panel" id="mapaPanel" aria-live="polite">
+              <div class="panel-vacio" id="panelVacio">
+                <div class="panel-vacio__icono" aria-hidden="true">
+                  <svg viewBox="0 0 64 64" width="56" height="56"><circle cx="32" cy="28" r="10" fill="none" stroke="currentColor" stroke-width="3"/><path d="M32 54C22 40 16 34 16 26a16 16 0 0 1 32 0c0 8-6 14-16 28z" fill="none" stroke="currentColor" stroke-width="3"/></svg>
+                </div>
+                <h3>Elegí un punto</h3>
+                <p>Tocá un círculo del mapa para conocer esa zona, su pueblo y algún dato curioso.</p>
+              </div>
+              <div class="panel-ficha" id="panelFicha" hidden>
+                <span class="insignia" id="panelPueblo"></span>
+                <h3 id="panelTitulo"></h3>
+                <p id="panelTexto"></p>
+                <p class="panel-ficha__dato"><b>Dato:</b> <span id="panelDato"></span></p>
+                <div class="panel-ficha__acciones">
+                  <button class="boton boton--chico" id="panelVerPueblo">Ver el pueblo completo</button>
+                </div>
+              </div>
+            </aside>
+          </div>
+
+        </div>
+
+        <p class="nota" data-aparecer>
+          Los Qom se distribuyen en el sur, norte, centro y oeste, con mayor presencia en el este;
+          los pilagá ocupan el centro-oeste y norte; y los wichí, el oeste.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===================== LOS PUEBLOS ===================== -->
+    <section class="seccion" id="pueblos">
+      <div class="contenedor">
+        <header class="seccion__titulo" data-aparecer>
+          <p class="sobretitulo">Conocé a cada pueblo</p>
+          <h2>Qom, Wichí y Pilagá</h2>
+          <p>Elegí una pestaña para recorrer su lengua, su organización, su forma de vida y su artesanía.</p>
+        </header>
+
+        <div class="pestanas" role="tablist" aria-label="Pueblos" data-aparecer>
+          <button role="tab" id="tab-qom" aria-controls="panel-qom" aria-selected="true" class="pestana es-activa" data-pueblo="qom" style="--c:#2f7d4f">Qom (Toba)</button>
+          <button role="tab" id="tab-wichi" aria-controls="panel-wichi" aria-selected="false" class="pestana" data-pueblo="wichi" style="--c:#d9701c">Wichí</button>
+          <button role="tab" id="tab-pilaga" aria-controls="panel-pilaga" aria-selected="false" class="pestana" data-pueblo="pilaga" style="--c:#2b5fae">Pilagá</button>
+        </div>
+
+        <!-- ---------- QOM ---------- -->
+        <div class="panel-pueblo es-activo" id="panel-qom" role="tabpanel" aria-labelledby="tab-qom" style="--c:#2f7d4f">
+          <div class="ficha">
+            <div><span>Zona</span><b>Este, sur, norte, centro y oeste (mayoría en el este)</b></div>
+            <div><span>Lengua</span><b>Qom l’aqtac · guaycurú</b></div>
+            <div><span>Comunidades</span><b>50</b></div>
+            <div><span>Artesanía</span><b>Cestería de palma y totora, telar y pretelar</b></div>
+          </div>
+
+          <div class="bloque">
+            <h3>Qom o Toba: el valor de nombrarse</h3>
+            <p>
+              “Qom” es la palabra de su propia lengua con la que se reconocen como pueblo y significa “persona” o “gente”.
+              Durante mucho tiempo se los llamó “tobas”, un nombre que usaron otras personas. Por eso hoy se considera más adecuado
+              hablar del pueblo Qom: la autodenominación permite que un pueblo decida cómo quiere ser reconocido.
+            </p>
+          </div>
+
+          <div class="bloque">
+            <h3>Territorio y ramas del pueblo</h3>
+            <p>
+              Muchas comunidades viven dentro de un predio comunitario de <b>35.000 hectáreas</b> cercano al bañado La Estrella,
+              formado por los desbordes del río Pilcomayo. Además, unas 400 personas habitan el barrio <b>Comle’ec</b>, en los
+              alrededores de Ingeniero Juárez.
+            </p>
+            <div class="cuatro-columnas">
+              <div class="mini-tarjeta"><b>Qom de la zona de La Estrella</b><span>La rama que vive en Formosa, cerca del Pilcomayo.</span></div>
+              <div class="mini-tarjeta"><b>Tobas del Chaco Oriental</b><span>Tobas argentinos, en el centro-oeste de Formosa y Chaco.</span></div>
+              <div class="mini-tarjeta"><b>Tobas bolivianos</b><span>Viven en el alto Pilcomayo argentino-boliviano.</span></div>
+              <div class="mini-tarjeta"><b>Emoc</b><span>Tobas del Chaco Boreal paraguayo.</span></div>
+            </div>
+          </div>
+
+          <div class="bloque bloque--dos">
+            <div>
+              <h3>Organización tradicional</h3>
+              <p>
+                Antiguamente vivían a orillas del Pilcomayo en bandas de 40 a 70 personas adultas, organizadas en familias extensas.
+                Cada banda tenía un líder: el <b>Neta</b> (“padre”, “hombre mayor”), una persona fuerte, alta y respetada.
+              </p>
+              <p>
+                Las bandas recibían nombres según algo que las distinguía. Los <b>Llayaqapi</b> (de <i>llayaga</i>, “zorro”)
+                se llamaban así porque cantaban y andaban toda la noche como los zorros.
+              </p>
+            </div>
+            <div class="cita">
+              <p>“Tomaban lo justo y seguían camino.”</p>
+              <span>Vivían en campamentos que desarmaban para buscar agua, frutos y animales, siempre dentro de un territorio que reconocían como propio.</span>
+            </div>
+          </div>
+
+          <div class="bloque">
+            <h3>Alimentación tradicional</h3>
+            <p>Tocá una fuente de alimento para ver qué comían y cómo lo conseguían.</p>
+            <div class="alimentos" id="alimentos"></div>
+            <div class="alimento-detalle" id="alimentoDetalle" aria-live="polite"></div>
+          </div>
+
+          <div class="bloque bloque--dos">
+            <div>
+              <h3>Lengua</h3>
+              <p>
+                El idioma nativo es el <b>qom l’aqtac</b>, de la rama guaycurú. Hoy sigue fuerte y se transmite de generación en generación.
+                En zonas rurales hay ancianos y niños menores de 5 años que hablan solo qom; la mayoría de los adultos es bilingüe, y una
+                porción pequeña, sobre todo en zonas urbanas, habla solo español.
+              </p>
+              <p>El qom no tiene género gramatical ni artículos como el español: su estructura refleja otra forma de entender y nombrar la realidad.</p>
+            </div>
+            <div>
+              <h3>Religión y cosmovisión</h3>
+              <p>
+                Creen en una deidad suprema y adoran a los seres de la naturaleza. Su máxima autoridad religiosa es el <b>chamán</b>
+                (<i>piooxonak</i>), que intercede ante los seres espirituales, protege de la maldad y cura enfermedades.
+              </p>
+              <p>Una parte de la comunidad se convirtió al cristianismo, católico o pentecostal, e incluso algunos chamanes son hoy pastores.</p>
+            </div>
+          </div>
+
+          <p class="cierre-pueblo">Los Qom ya no son solo memoria del pasado: son presente, son vecinos y son parte de la identidad formoseña.</p>
+        </div>
+
+        <!-- ---------- WICHÍ ---------- -->
+        <div class="panel-pueblo" id="panel-wichi" role="tabpanel" aria-labelledby="tab-wichi" style="--c:#d9701c" hidden>
+          <div class="ficha">
+            <div><span>Zona</span><b>Oeste de la provincia (mayor concentración)</b></div>
+            <div><span>Lengua</span><b>Wichí · mataco-mataguayo</b></div>
+            <div><span>Comunidades</span><b>116</b></div>
+            <div><span>Artesanía</span><b>Chaguar, caraguatá, palo santo, cerámica, lana y semillas</b></div>
+          </div>
+
+          <div class="bloque">
+            <h3>Nombre y lengua</h3>
+            <p>
+              En un principio se los conoció como <i>matacos</i>, un nombre externo que hoy se reemplaza por su autodenominación: Wichí.
+              Su lengua materna comparte parte de su gramática con otras lenguas del Gran Chaco y, por el contacto entre culturas, hay bilingüismo.
+              Se divide en dos dialectos:
+            </p>
+            <div class="dos-columnas">
+              <div class="mini-tarjeta"><b>Vejoz (wehwos)</b><span>Hablado por los wichí de la región del río Bermejo.</span></div>
+              <div class="mini-tarjeta"><b>Güisnay (weenhayey)</b><span>Significa “gente desconocida”. Lo hablan los wichí de la región del Pilcomayo.</span></div>
+            </div>
+          </div>
+
+          <div class="bloque">
+            <h3>Territorio y población</h3>
+            <p>
+              Habitan la región occidental del Gran Chaco, una zona tropical semiárida donde el clima varía mucho según la época del año.
+              Las estimaciones hablan de <b>36.135 personas</b> en unos 100.000 km², aunque otras cifras llegan a 50.000. Se distribuyen entre
+              Salta, Chaco y Formosa, y hay trece comunidades también en el sudoeste de Bolivia.
+            </p>
+            <p>
+              El antropólogo John Palmer, en <i>La buena voluntad wichí</i> (basado en más de 25 años de convivencia con comunidades de Salta y Formosa),
+              explica que la organización social wichí trasciende los límites provinciales y forma una extensa red unida por parentesco y matrimonio.
+            </p>
+          </div>
+
+          <div class="bloque">
+            <h3>Las cuatro estaciones wichí</h3>
+            <p>Los wichí dividen el año según lo que ocurre en el monte. Tocá una estación para ver cuándo ocurre.</p>
+            <div class="estaciones">
+              <div class="estaciones__rueda" id="estacionesRueda"></div>
+              <div class="estaciones__detalle" id="estacionesDetalle" aria-live="polite"></div>
+            </div>
+          </div>
+
+          <div class="bloque bloque--dos">
+            <div>
+              <h3>Costumbres y transmisión de saberes</h3>
+              <p>
+                Antiguamente los jóvenes aprendían de los ancianos a cazar, mariscar y pescar. Las mujeres aprendían de sus abuelas y madres
+                a recolectar frutos, realizar tareas domésticas y tejer. Al pasar la pubertad, el joven debía asumir las actividades de los mayores.
+              </p>
+              <p>
+                Muchas de estas costumbres cambiaron: los jóvenes ya no viven solo de lo que ofrece la naturaleza, aprenden en la escuela y en los medios,
+                y muchos estudian, impulsados por la importancia que los mayores le dan a la educación.
+              </p>
+            </div>
+            <div>
+              <h3>El chaguar, un oficio que identifica</h3>
+              <p>
+                La actividad con el chaguar es una de las que más identifica a la cultura wichí. Antes la practicaban ambos sexos; hoy es una de las
+                principales actividades productivas de las mujeres, que se organizaron para comercializar sus artesanías y participan en ferias provinciales y nacionales.
+              </p>
+              <p><a class="enlace-flecha" href="#materiales" data-ir-material="chaguar">Ver cómo se trabaja el chaguar →</a></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ---------- PILAGÁ ---------- -->
+        <div class="panel-pueblo" id="panel-pilaga" role="tabpanel" aria-labelledby="tab-pilaga" style="--c:#2b5fae" hidden>
+          <div class="ficha">
+            <div><span>Zona</span><b>Centro-oeste y norte</b></div>
+            <div><span>Lengua</span><b>Pilagá · guaycurú</b></div>
+            <div><span>Comunidades</span><b>26</b></div>
+            <div><span>Artesanía</span><b>Cestería de carandillo, chaguar y lana en telar</b></div>
+          </div>
+
+          <div class="bloque">
+            <h3>¿Dónde asentarse? Las tres condiciones</h3>
+            <p>Para elegir un nuevo lugar, los pilagá tenían en cuenta tres cosas. Tocá cada tarjeta para leer más.</p>
+            <div class="condiciones" id="condiciones"></div>
+          </div>
+
+          <div class="bloque">
+            <h3>El Pilcomayo marcaba el ritmo del año</h3>
+            <p>
+              Según Enrique Palavecino, el caudal del Pilcomayo definía los movimientos de la comunidad. Tocá una barra del calendario para ver qué pasaba en cada momento.
+            </p>
+            <div class="calendario" id="calendario"></div>
+            <div class="calendario__detalle" id="calendarioDetalle" aria-live="polite"></div>
+          </div>
+
+          <div class="bloque bloque--dos">
+            <div>
+              <h3>Economía y división de tareas</h3>
+              <p>Tenían una economía de subsistencia basada en la pesca, la recolección y la caza.</p>
+              <div class="tareas">
+                <div class="tareas__col">
+                  <b>Los hombres</b>
+                  <ul>
+                    <li>Pesca (de abril a junio o julio)</li>
+                    <li>Extracción de miel</li>
+                    <li>Captura de quirquinchos, suris, pecaríes e iguanas</li>
+                  </ul>
+                </div>
+                <div class="tareas__col">
+                  <b>Las mujeres</b>
+                  <ul>
+                    <li>Recolección de huevos de chajá</li>
+                    <li>Frutos como la papa de agua y hojas de chaguar</li>
+                    <li>Tejidos con carandillo y fibras de chaguar</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div>
+              <h3>Pesca con arpón y con redes</h3>
+              <p>
+                El arpón era una vara de unos 5 metros con una punta desmontable atada a una cuerda. Al clavarse en el pez, la punta se desprendía
+                y el pescador recogía la presa con breves tirones. También usaban redes de “tijera” y de “bolsa”.
+              </p>
+              <p><a class="enlace-flecha" href="#materiales" data-ir-material="arpon">Ver el paso a paso del arpón →</a></p>
+            </div>
+          </div>
+
+          <div class="bloque">
+            <h3>Organización social</h3>
+            <p>
+              La unidad social mínima era la familia extensa. Eran exogámicos y de residencia <b>matrilocal</b>: los nuevos matrimonios se integraban a la aldea de la esposa,
+              primero dentro de su familia extensa, hasta poder construir su propia vivienda, siempre en la aldea de la mujer. Las bandas se formaban por alianzas
+              entre los jefes de cada familia extensa para trasladarse juntos.
+            </p>
+          </div>
+
+          <div class="relato" aria-label="Relato pilagá">
+            <div class="relato__cielo" id="relatoCielo" aria-hidden="true"></div>
+            <div class="relato__texto">
+              <p class="sobretitulo">Relato</p>
+              <h3>El origen de las familias</h3>
+              <p>
+                Cuentan las abuelas que, en el origen, las mujeres vivían en el cielo: eran las estrellas. Bajaban a la tierra por una larga soga para robar
+                la comida de los hombres mientras ellos cazaban o pescaban.
+              </p>
+              <p>
+                Un día, uno de los guardias las descubrió y cortó la soga. Las que quedaron por encima del corte son hoy las estrellas del cielo. Las que estaban
+                por debajo formaron las familias pilagá y enseñaron a sembrar el maíz, la sandía, el melón y otros frutos.
+              </p>
+              <button class="boton boton--chico boton--claro" id="relatoBoton">Cortar la soga</button>
+            </div>
+          </div>
+
+          <div class="bloque">
+            <h3>Lengua</h3>
+            <p>
+              El pilagá es la lengua tradicional de este pueblo y pertenece a la familia guaycurú. Aunque su uso disminuyó por la influencia externa y la educación en español,
+              todavía hay hablantes activos que se esfuerzan por preservarla.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== GALERÍA DE MATERIALES ===================== -->
+    <section class="seccion seccion--oscura" id="materiales">
+      <div class="contenedor">
+        <header class="seccion__titulo seccion__titulo--claro" data-aparecer>
+          <p class="sobretitulo">Galería de materiales</p>
+          <h2>Lo que da el monte, el río y el bañado</h2>
+          <p>
+            Cada pueblo transforma materiales naturales en alimentos, objetos y adornos. Pasá de un material al otro con las flechas
+            y seguí el proceso paso a paso, de arriba hacia abajo.
+          </p>
+        </header>
+
+        <div class="galeria" id="galeria" data-aparecer>
+          <div class="galeria__filtros" id="galeriaFiltros" role="group" aria-label="Filtrar materiales por pueblo">
+            <button class="filtro filtro--claro es-activo" data-pueblo="todos" aria-pressed="true">Todos</button>
+            <button class="filtro filtro--claro" data-pueblo="qom" aria-pressed="false" style="--c:#4fb37a"><span class="punto"></span>Qom</button>
+            <button class="filtro filtro--claro" data-pueblo="wichi" aria-pressed="false" style="--c:#f0953f"><span class="punto"></span>Wichí</button>
+            <button class="filtro filtro--claro" data-pueblo="pilaga" aria-pressed="false" style="--c:#5b8fe0"><span class="punto"></span>Pilagá</button>
+          </div>
+
+          <div class="galeria__escenario">
+            <button class="flecha flecha--izq" id="galeriaPrev" aria-label="Material anterior">
+              <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M15 4l-8 8 8 8" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+
+            <article class="material" id="galeriaTarjeta" aria-live="polite" tabindex="-1">
+              <!-- Se completa con JavaScript -->
+            </article>
+
+            <button class="flecha flecha--der" id="galeriaNext" aria-label="Material siguiente">
+              <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M9 4l8 8-8 8" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+
+          <div class="galeria__pie">
+            <div class="puntos" id="galeriaPuntos" role="tablist" aria-label="Elegir material"></div>
+            <p class="galeria__contador" id="galeriaContador"></p>
+          </div>
+          <p class="galeria__nota">
+            Los pasos son una síntesis general de cómo se trabaja cada material; pueden variar según la comunidad, la zona y la persona que lo hace.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== FORMOSA HOY ===================== -->
+    <section class="seccion" id="hoy">
+      <div class="contenedor">
+        <header class="seccion__titulo" data-aparecer>
+          <p class="sobretitulo">La realidad sociocultural de hoy</p>
+          <h2>Las comunidades en el presente</h2>
+          <p>
+            Hoy las comunidades mantienen sus tradiciones, participan en instituciones públicas como el ICA, acceden a educación intercultural bilingüe
+            y buscan preservar sus derechos y territorios.
+          </p>
+        </header>
+
+        <div class="tres-columnas">
+          <article class="tarjeta" data-aparecer>
+            <h3>Diversidad cultural</h3>
+            <p>192 comunidades (116 wichí, 50 qom y 26 pilagá) y 17 variantes dialectales conviven en el territorio formoseño.</p>
+          </article>
+          <article class="tarjeta" data-aparecer>
+            <h3>Desigualdad persistente</h3>
+            <p>Pese a los avances en políticas públicas, persisten desafíos en el acceso a la salud, la educación y el empleo.</p>
+          </article>
+          <article class="tarjeta" data-aparecer>
+            <h3>Resistencia cultural</h3>
+            <p>La artesanía, la lengua y la organización comunitaria son formas activas de afirmar la identidad.</p>
+          </article>
+        </div>
+
+        <div class="barras" data-aparecer>
+          <h3>Comunidades por pueblo</h3>
+          <div class="barra" style="--c:#d9701c; --p:60.4%"><span>Wichí</span><div><i></i></div><b>116</b></div>
+          <div class="barra" style="--c:#2f7d4f; --p:26%"><span>Qom</span><div><i></i></div><b>50</b></div>
+          <div class="barra" style="--c:#2b5fae; --p:13.5%"><span>Pilagá</span><div><i></i></div><b>26</b></div>
+        </div>
+
+        <div class="galeria-cultural" id="galeria-cultural">
+        <header class="galeria-cultural__titulo" data-aparecer>
+          <p class="sobretitulo">Galería cultural</p>
+          <h3>Imágenes de las comunidades</h3>
+          <p>Tocá una foto para verla más grande.</p>
+        </header>
+        <h4 class="fotos__grupo" data-aparecer>Las comunidades hoy</h4>
+        <div class="fotos" id="fotos" data-aparecer>
+          <figure>
+            <button class="foto-boton" data-foto="img/comunidad-mujeres.jpg" data-leyenda="Mujeres de una comunidad posan juntas al aire libre.">
+              <img src="img/comunidad-mujeres.jpg" alt="Grupo de mujeres de una comunidad posando juntas al aire libre" loading="lazy">
+            </button>
+            <figcaption>Mujeres de una comunidad</figcaption>
+          </figure>
+          <figure>
+            <button class="foto-boton" data-foto="img/artesanas-cestos.jpg" data-leyenda="Artesanas junto a sus cestos tejidos.">
+              <img src="img/artesanas-cestos.jpg" alt="Mujeres artesanas junto a una mesa con cestos tejidos" loading="lazy">
+            </button>
+            <figcaption>Artesanas con sus cestos</figcaption>
+          </figure>
+          <figure>
+            <button class="foto-boton" data-foto="img/reunion-comunitaria.jpg" data-leyenda="Reunión comunitaria al aire libre.">
+              <img src="img/reunion-comunitaria.jpg" alt="Personas reunidas alrededor de mesas al aire libre en una reunión comunitaria" loading="lazy">
+            </button>
+            <figcaption>Reunión comunitaria</figcaption>
+          </figure>
+          <figure>
+            <button class="foto-boton" data-foto="img/vivienda-monte.jpg" data-leyenda="Una niña camina frente a una vivienda rural en el monte.">
+              <img src="img/vivienda-monte.jpg" alt="Una niña camina frente a una vivienda de ramas y paja, con ropa colgada a un costado" loading="lazy">
+            </button>
+            <figcaption>Vida cotidiana en el monte</figcaption>
+          </figure>
+          <figure>
+            <button class="foto-boton foto-boton--retrato" data-foto="img/galeria/mujer-qom-nina.jpg" data-leyenda="Mujer qom con una niña en brazos. Comunidad del Lote 67, Formosa, 2012. Foto: ANSES · CC BY-SA 2.0 (Wikimedia Commons).">
+              <img src="img/galeria/mujer-qom-nina.jpg" alt="Una mujer qom sonríe mientras abraza a una niña pequeña" loading="lazy">
+            </button>
+            <figcaption>Mujer qom con una niña (Lote 67, 2012)<small class="foto-credito">Foto: ANSES · CC BY-SA 2.0</small></figcaption>
+          </figure>
+          <figure>
+            <button class="foto-boton" data-foto="img/galeria/comunidad-qom.jpg" data-leyenda="Vecinas de la comunidad qom del Lote 67 conversan al aire libre. Formosa, 2012. Foto: ANSES · CC BY-SA 2.0 (Wikimedia Commons).">
+              <img src="img/galeria/comunidad-qom.jpg" alt="Mujeres de una comunidad qom conversan sentadas al aire libre" loading="lazy">
+            </button>
+            <figcaption>Vecinas de la comunidad qom (Lote 67, 2012)<small class="foto-credito">Foto: ANSES · CC BY-SA 2.0</small></figcaption>
+          </figure>
+          <figure>
+            <button class="foto-boton" data-foto="img/galeria/qompi-rugby.jpg" data-leyenda="Qompi Rugby Club: el primer equipo de rugby de mujeres de pueblos originarios de la Argentina. Sus integrantes son mujeres qom. Formosa, 2024. Foto: Omboman · CC BY-SA 4.0 (Wikimedia Commons).">
+              <img src="img/galeria/qompi-rugby.jpg" alt="Cuatro jugadoras del Qompi Rugby Club sostienen juntas una pelota de rugby" loading="lazy">
+            </button>
+            <figcaption>Qompi Rugby Club, mujeres qom (2024)<small class="foto-credito">Foto: Omboman · CC BY-SA 4.0</small></figcaption>
+          </figure>
+          <figure>
+            <button class="foto-boton" data-foto="img/galeria/qompi-rugby-2.jpg" data-leyenda="Una jugadora del Qompi Rugby Club apoya la pelota en un try durante un entrenamiento. Formosa, 2024. Foto: Omboman · CC BY-SA 4.0 (Wikimedia Commons).">
+              <img src="img/galeria/qompi-rugby-2.jpg" alt="Una jugadora se tira al suelo mojado para apoyar la pelota de rugby" loading="lazy">
+            </button>
+            <figcaption>Entrenamiento del Qompi Rugby Club (2024)<small class="foto-credito">Foto: Omboman · CC BY-SA 4.0</small></figcaption>
+          </figure>
+        </div>
+
+        <h4 class="fotos__grupo" data-aparecer>Fotos históricas</h4>
+        <div class="fotos" data-aparecer>
+          <figure>
+            <button class="foto-boton foto-boton--retrato" data-foto="img/galeria/mujer-pilaga-1964.jpg" data-leyenda="Mujer pilagá. Colonia Juan B. Alberdi, Formosa, 21 de agosto de 1964. Foto: Grete Stern · Dominio público (Wikimedia Commons).">
+              <img src="img/galeria/mujer-pilaga-1964.jpg" alt="Retrato de una mujer pilagá sonriendo, en 1964" loading="lazy" style="object-position: center 62%">
+            </button>
+            <figcaption>Mujer pilagá (Colonia Juan B. Alberdi, 1964)<small class="foto-credito">Foto: Grete Stern · Dominio público</small></figcaption>
+          </figure>
+          <figure>
+            <button class="foto-boton foto-boton--retrato" data-foto="img/galeria/pilaga-tatuajes-1964.jpg" data-leyenda="Mujer pilagá con tatuajes tradicionales en el rostro. La Bomba, cerca de Las Lomitas, Formosa, 16 de agosto de 1964. Foto: Grete Stern · Dominio público (Wikimedia Commons).">
+              <img src="img/galeria/pilaga-tatuajes-1964.jpg" alt="Retrato de una mujer pilagá con tatuajes tradicionales en el rostro, en 1964" loading="lazy">
+            </button>
+            <figcaption>Mujer pilagá con tatuajes tradicionales (1964)<small class="foto-credito">Foto: Grete Stern · Dominio público</small></figcaption>
+          </figure>
+          <figure>
+            <button class="foto-boton foto-boton--retrato" data-foto="img/galeria/hombre-wichi-1964.jpg" data-leyenda="Hombre wichí. Colonia 20, Las Lomitas, Formosa, 18 de agosto de 1964. Foto: Grete Stern · Dominio público (Wikimedia Commons).">
+              <img src="img/galeria/hombre-wichi-1964.jpg" alt="Retrato en blanco y negro de un hombre wichí mayor sonriendo, en 1964" loading="lazy">
+            </button>
+            <figcaption>Hombre wichí (Colonia 20, Las Lomitas, 1964)<small class="foto-credito">Foto: Grete Stern · Dominio público</small></figcaption>
+          </figure>
+          <figure>
+            <button class="foto-boton" data-foto="img/galeria/ninas-pilaga.jpg" data-leyenda="Niña pilagá con su hermanita en brazos. Coquero, Formosa, décadas de 1960 y 1970. Foto: Mennonite Church USA Archives · Sin restricciones de uso (Wikimedia Commons).">
+              <img src="img/galeria/ninas-pilaga.jpg" alt="Foto en blanco y negro de una niña pilagá que carga a su hermanita" loading="lazy">
+            </button>
+            <figcaption>Niña pilagá con su hermanita (Coquero, años 60–70)<small class="foto-credito">Foto: Mennonite Church USA Archives</small></figcaption>
+          </figure>
+        </div>
+        <p class="fotos__nota" data-aparecer>
+          Las fotos de 1964 son de <b>Grete Stern</b>, fotógrafa que recorrió el Chaco y Formosa retratando a los pueblos originarios.
+          Hoy son un registro histórico muy valioso.
+        </p>
+
+        <h4 class="fotos__grupo" data-aparecer>Artesanía y cultura material</h4>
+        <div class="fotos" data-aparecer>
+          <figure>
+            <button class="foto-boton" data-foto="img/galeria/artesanas-chaguar.jpg" data-leyenda="Taller de artesanas wichí del chaguar, con mujeres de comunidades de Salta, Formosa y Chaco. Tartagal, 2014. Foto: Secretaría de Cultura de la Nación · CC BY-SA 2.0 (Wikimedia Commons).">
+              <img src="img/galeria/artesanas-chaguar.jpg" alt="Artesanas wichí con collares y madejas de hilo de chaguar" loading="lazy">
+            </button>
+            <figcaption>Taller de artesanas wichí del chaguar (2014)<small class="foto-credito">Foto: Secretaría de Cultura · CC BY-SA 2.0</small></figcaption>
+          </figure>
+          <figure>
+            <button class="foto-boton foto-boton--retrato" data-foto="img/galeria/artesana-chaguar.jpg" data-leyenda="Artesana wichí hilando fibra de chaguar durante un taller de artesanas. Tartagal, 2014. Foto: Secretaría de Cultura de la Nación · CC BY-SA 2.0 (Wikimedia Commons).">
+              <img src="img/galeria/artesana-chaguar.jpg" alt="Una artesana wichí sostiene un ovillo de hilo de chaguar" loading="lazy">
+            </button>
+            <figcaption>Artesana con hilo de chaguar (2014)<small class="foto-credito">Foto: Secretaría de Cultura · CC BY-SA 2.0</small></figcaption>
+          </figure>
+          <figure>
+            <button class="foto-boton" data-foto="img/galeria/artesanias-chaguar.jpg" data-leyenda="Artesanías elaboradas con hilo de chaguar: cestos, collares y tejidos. 2024. Foto: Ashazam · CC BY-SA 4.0 (Wikimedia Commons).">
+              <img src="img/galeria/artesanias-chaguar.jpg" alt="Cestos, collares y tejidos hechos con hilo de chaguar sobre una mesa" loading="lazy">
+            </button>
+            <figcaption>Artesanías tejidas con chaguar (2024)<small class="foto-credito">Foto: Ashazam · CC BY-SA 4.0</small></figcaption>
+          </figure>
+          <figure>
+            <button class="foto-boton" data-foto="img/galeria/flor-chaguar.jpg" data-leyenda="Planta de chaguar (Bromelia hieronymi) en flor, en el monte chaqueño. Foto: Ccngodoy · CC BY 4.0 (Wikimedia Commons).">
+              <img src="img/galeria/flor-chaguar.jpg" alt="Planta de chaguar de hojas largas y espinosas con su flor roja en el centro" loading="lazy">
+            </button>
+            <figcaption>La planta de chaguar en flor<small class="foto-credito">Foto: Ccngodoy · CC BY 4.0</small></figcaption>
+          </figure>
+          <figure>
+            <button class="foto-boton foto-boton--objeto" data-foto="img/galeria/talla-tucan.jpg" data-leyenda="Talla wichí en madera que representa un tucán sobre una rama. Se usaron maderas de distintos árboles para lograr los colores; los ojos son de hueso y guayacán. Foto: Ylay Zamora · CC BY-SA 4.0 (Wikimedia Commons).">
+              <img src="img/galeria/talla-tucan.jpg" alt="Figura de un tucán tallada en madera de dos colores" loading="lazy">
+            </button>
+            <figcaption>Talla wichí en madera: un tucán<small class="foto-credito">Foto: Ylay Zamora · CC BY-SA 4.0</small></figcaption>
+          </figure>
+          <figure>
+            <button class="foto-boton foto-boton--objeto" data-foto="img/galeria/bolsa-pilaga.jpg" data-leyenda="Bolsa pilagá hecha con piel de ñandú, exhibida en el Museo Americano de Historia Natural de Nueva York. Foto: Daderot · CC0 (Wikimedia Commons).">
+              <img src="img/galeria/bolsa-pilaga.jpg" alt="Bolsa hecha con piel de ñandú, con correa roja" loading="lazy">
+            </button>
+            <figcaption>Bolsa pilagá de piel de ñandú (museo)<small class="foto-credito">Foto: Daderot · CC0</small></figcaption>
+          </figure>
+          <figure>
+            <button class="foto-boton foto-boton--objeto" data-foto="img/galeria/collar-pilaga.jpg" data-leyenda="Collar pilagá exhibido en el Museo Americano de Historia Natural de Nueva York. Foto: Daderot · CC0 (Wikimedia Commons).">
+              <img src="img/galeria/collar-pilaga.jpg" alt="Collar largo pilagá hecho con piezas pequeñas enhebradas" loading="lazy">
+            </button>
+            <figcaption>Collar pilagá (museo)<small class="foto-credito">Foto: Daderot · CC0</small></figcaption>
+          </figure>
+        </div>
+        <p class="fotos__nota" data-aparecer>
+          Las fotos agregadas son de <b>Wikimedia Commons</b> y tienen licencias libres que permiten usarlas nombrando al autor.
+        </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== DICCIONARIO Y GLOSARIO ===================== -->
+    <section class="seccion seccion--arena" id="glosario">
+      <div class="contenedor">
+        <header class="seccion__titulo" data-aparecer>
+          <p class="sobretitulo">Diccionario</p>
+          <h2>Buscá una palabra</h2>
+          <p>
+            Todas las palabras importantes de esta página tienen su significado acá, y funcionan
+            <b>sin conexión a internet</b>. Buscá por palabra (también conjugada: “pescaban” encuentra “Pescar”),
+            por categoría o por letra. Si tenés internet, podés ampliar la búsqueda en diccionarios y
+            enciclopedias, y lo que encuentres queda guardado para usarlo después sin conexión.
+          </p>
+        </header>
+
+        <div class="glosario" data-aparecer>
+          <form class="buscador" id="glosarioForm" role="search" autocomplete="off">
+            <label for="glosarioBuscar" class="sr-only">Buscar una palabra</label>
+            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M16.5 16.5L21 21" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+            <input type="search" id="glosarioBuscar" placeholder="Buscá: chaguar, bañado, Neta, algarroba…" spellcheck="false">
+            <button type="button" class="buscador__limpiar" id="glosarioLimpiar" aria-label="Borrar búsqueda" hidden>×</button>
+          </form>
+
+          <div class="glosario__chips" id="glosarioCategorias" role="group" aria-label="Filtrar por categoría"></div>
+          <div class="glosario__abc" id="glosarioAbc" aria-label="Filtrar por letra"></div>
+
+          <p class="glosario__estado" id="glosarioEstado" aria-live="polite"></p>
+          <div class="glosario__lista" id="glosarioLista"></div>
+
+          <div class="internet" id="glosarioInternet" hidden>
+            <div class="internet__cabecera">
+              <div>
+                <h3>¿Querés ampliar la búsqueda?</h3>
+                <p>Consultá diccionarios y enciclopedias en internet para <b id="internetPalabra"></b>.</p>
+              </div>
+              <button class="boton" id="internetBoton" type="button">Buscar en diccionarios y enciclopedias</button>
+            </div>
+            <div class="internet__resultado" id="internetResultado" aria-live="polite"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== LEY 426 E ICA ===================== -->
+    <section class="seccion" id="ley">
+      <div class="contenedor">
+        <header class="seccion__titulo" data-aparecer>
+          <p class="sobretitulo">Marco institucional</p>
+          <h2>El ICA y la Ley 426</h2>
+          <p>Dos herramientas que cambiaron la relación entre el Estado provincial y los pueblos originarios.</p>
+        </header>
+
+        <div class="ley" data-aparecer>
+          <div class="ley__fecha">
+            <span>16 de noviembre</span>
+            <strong>1984</strong>
+            <p>Se promulga en Formosa la Ley Integral del Aborigen N.º 426, pionera en el país.</p>
+          </div>
+
+          <div class="acordeon" id="acordeonLey">
+            <div class="acordeon__item">
+              <h3><button aria-expanded="true">Objetivo<span class="mas" aria-hidden="true"></span></button></h3>
+              <div class="acordeon__cuerpo">
+                <p>Preservar la identidad social y cultural de los pueblos Qom, Pilagá y Wichí, asegurar su participación en el desarrollo provincial y mejorar sus condiciones económicas.</p>
+              </div>
+            </div>
+            <div class="acordeon__item">
+              <h3><button aria-expanded="false">Tierras<span class="mas" aria-hidden="true"></span></button></h3>
+              <div class="acordeon__cuerpo" hidden>
+                <p>Reconoce el derecho a la propiedad comunitaria de las tierras que habitan y busca su titularización para evitar desalojos.</p>
+              </div>
+            </div>
+            <div class="acordeon__item">
+              <h3><button aria-expanded="false">Participación y el ICA<span class="mas" aria-hidden="true"></span></button></h3>
+              <div class="acordeon__cuerpo" hidden>
+                <p>Crea el Instituto de Comunidades Aborígenes (ICA), un organismo autárquico que centraliza las políticas indígenas. Su directorio está integrado por representantes elegidos por las propias comunidades Qom, Pilagá y Wichí, con la idea de que la gestión no sea solo “para” ellos, sino “con” ellos.</p>
+              </div>
+            </div>
+            <div class="acordeon__item">
+              <h3><button aria-expanded="false">Educación y salud<span class="mas" aria-hidden="true"></span></button></h3>
+              <div class="acordeon__cuerpo" hidden>
+                <p>Promueve una educación intercultural bilingüe y el acceso a centros de salud adecuados, integrando la cosmovisión indígena. También se ocupa de la vivienda.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dato-grande" data-aparecer>
+          <p><strong>38.039</strong> habitantes indígenas viven en Formosa: el <strong>7,21 %</strong> de la población provincial (ICA).</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== QUIZ ===================== -->
+    <section class="seccion seccion--arena" id="quiz">
+      <div class="contenedor contenedor--angosto">
+        <header class="seccion__titulo" data-aparecer>
+          <p class="sobretitulo">Para repasar</p>
+          <h2>¿Cuánto aprendiste?</h2>
+          <p>Diez preguntas sobre lo que viste en esta página. ¡Cambian en cada partida!</p>
+        </header>
+
+        <div class="quiz" id="quiz-caja" data-aparecer>
+          <div class="quiz__progreso"><i id="quizBarra"></i></div>
+          <p class="quiz__contador" id="quizContador"></p>
+          <h3 class="quiz__pregunta" id="quizPregunta" tabindex="-1"></h3>
+          <div class="quiz__opciones" id="quizOpciones"></div>
+          <div class="quiz__explicacion" id="quizExplicacion" aria-live="polite" hidden></div>
+          <div class="quiz__pie">
+            <button class="boton" id="quizSiguiente" hidden>Siguiente</button>
+          </div>
+          <div class="quiz__final" id="quizFinal" hidden></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CIERRE Y FUENTES ===================== -->
+    <section class="seccion" id="cierre">
+      <div class="contenedor">
+        <header class="seccion__titulo" data-aparecer>
+          <p class="sobretitulo">Para cerrar</p>
+          <h2>Conclusión y fuentes</h2>
+        </header>
+
+        <div class="conclusion">
+          <article class="tarjeta tarjeta--grande" data-aparecer>
+            <p class="conclusion__frase">
+              Los pueblos Qom, Wichí y Pilagá forman parte fundamental de la identidad formoseña. Conocer su lengua, su organización social,
+              su cosmovisión y su forma de vida es clave para construir una mirada completa y respetuosa.
+            </p>
+          </article>
+        </div>
+
+        <div class="fuentes" data-aparecer>
+          <h3>Fuentes consultadas</h3>
+          <ul>
+            <li>Pueblo Toba (Qom): ubicación, vestimenta, vivienda, alimentación y cultura. Sitio Pueblos Indígenas.</li>
+            <li>Pueblo originario Toba: características y modo de vida.</li>
+            <li>Pueblo indígena Wichí. Sitio Pueblos Indígenas (pueblosindigenas.es).</li>
+            <li>Palavecino, Enrique. Sobre el pueblo Pilagá, citado en pueblosoriginarios.com.</li>
+            <li>Palmer, John. <i>La buena voluntad wichí</i>. Basado en su tesis doctoral, Universidad de Oxford, 1997.</li>
+            <li>López, Alejandro Martín y Tola, Florencia Carmen (2016). <i>Qom (tobas): Antiguas y nuevas andanzas por el Gran Chaco</i>. Ministerio de Educación y Deportes de la Nación.</li>
+            <li>Instituto de Comunidades Aborígenes (ICA), Provincia de Formosa.</li>
+            <li>Ley Integral del Aborigen N.º 426 (1984), Provincia de Formosa.</li>
+          </ul>
+          <h4>Para la galería de materiales</h4>
+          <ul>
+            <li><a href="https://www.argentina.travel/actividades/artesania-formosena" target="_blank" rel="noopener">Artesanía formoseña</a> · Argentina.travel.</li>
+            <li>Matarrese, Marina. Estudios sobre la cestería pilagá de carandillo (noonek).</li>
+            <li>Menna, Fabiana (2022). <i>Hilu wet: el proceso de organización de las mujeres wichí, Formosa</i>. Tesis de maestría, FLACSO.</li>
+            <li>Herrera Cano, A. y Suarez, M. E. (2020). Ethnobiology of algarroba beer, the ancestral fermented beverage of the Wichí people of the Gran Chaco. <i>Journal of Ethnic Foods</i>.</li>
+          </ul>
+          <h4>Créditos de imágenes</h4>
+          <ul>
+            <li>Miel silvestre: Danika Perkinson, Unsplash.</li>
+            <li>Fotografías de comunidades: carpeta de investigación del grupo.</li>
+            <li>Galería cultural: fotos de <a href="https://commons.wikimedia.org" target="_blank" rel="noopener">Wikimedia Commons</a> con licencias libres.
+              Autores: Grete Stern (1964, dominio público); ANSES (CC BY-SA 2.0); Omboman (CC BY-SA 4.0);
+              Secretaría de Cultura de la Nación (CC BY-SA 2.0); Ashazam (CC BY-SA 4.0); Ccngodoy (CC BY 4.0);
+              Ylay Zamora (CC BY-SA 4.0); Daderot (CC0); Mennonite Church USA Archives.</li>
+          </ul>
+        </div>
+
+        <div class="acordeon acordeon--suelto" data-aparecer>
+          <div class="acordeon__item">
+            <h3><button aria-expanded="false">Análisis crítico de las fuentes<span class="mas" aria-hidden="true"></span></button></h3>
+            <div class="acordeon__cuerpo" hidden>
+              <p><b>Ley Integral del Aborigen N.º 426.</b> Su valor está en ser la primera norma argentina en reconocer de manera igualitaria los derechos indígenas. Su sesgo es normativo-institucional: refleja la mirada del Estado provincial de 1984, con una motivación que combinó el reconocimiento de derechos con un interés administrativo de reorganización territorial.</p>
+              <p><b>ICA.</b> Fuente institucional que aporta los datos cuantitativos (población, comunidades, variantes dialectales). Su enfoque es de gestión estatal y participación comunitaria.</p>
+              <p><b>Material educativo sobre pueblos originarios de Formosa.</b> Fuente divulgativa y escolar. Su fortaleza es la claridad; su límite es que ofrece información general, por eso la complementamos con otras fuentes.</p>
+              <p><b>Bibliografía especializada sobre Qom, Wichí y Pilagá.</b> Aporta profundidad antropológica e histórica y permite contrastar la mirada oficial con estudios académicos.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== PIE ===================== -->
+  <footer class="pie">
+    <div class="contenedor pie__grid">
+      <div>
+        <h3>Pueblos Originarios de Formosa</h3>
+        <p>Recurso Educativo Digital (RED): página web interactiva.</p>
+        <p class="pie__chico">Eje 2: Diversidad Sociocultural de Formosa.</p>
+      </div>
+      <div>
+        <h4>Institución</h4>
+        <p>ISFDyT “República Federal de Alemania”</p>
+        <p class="pie__chico">El Colorado, Formosa</p>
+      </div>
+      <div>
+        <h4>Materia</h4>
+        <p>Análisis de la Realidad Sociocultural de Formosa</p>
+        <p class="pie__chico">Profesora: Mariela Leguizamon<br>Curso: 3.º Tec. Software</p>
+      </div>
+      <div>
+        <h4>Integrantes</h4>
+        <ul>
+          <li>Barrios Yolanda</li>
+          <li>Suarez Fiorella</li>
+          <li>Humeres Maximiliano</li>
+        </ul>
+      </div>
+    </div>
+    <p class="pie__final">Hecho con HTML, CSS y JavaScript · Las imágenes y los textos pertenecen a sus autores y fuentes.</p>
+  </footer>
+
+  <button class="subir" id="subir" aria-label="Volver arriba" hidden>
+    <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M5 15l7-7 7 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+
+  <!-- Visor de fotos -->
+  <div class="visor" id="visor" role="dialog" aria-modal="true" aria-label="Imagen ampliada" hidden>
+    <button class="visor__cerrar" id="visorCerrar" aria-label="Cerrar imagen">×</button>
+    <figure>
+      <img id="visorImg" src="" alt="">
+      <figcaption id="visorLeyenda"></figcaption>
+    </figure>
+  </div>
+
+  <script src="js/datos.js"></script>
+  <script src="js/mapa.js"></script>
+  <script src="lib/leaflet/leaflet.js"></script>
+  <script src="js/mapa-real-datos.js"></script>
+  <script src="js/mapa-real.js"></script>
+  <script src="js/pueblos.js"></script>
+  <script src="js/galeria.js"></script>
+  <script src="js/diccionario.js"></script>
+  <script src="js/glosario.js"></script>
+  <script src="js/quiz.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

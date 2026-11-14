@@ -1,0 +1,39 @@
+PUEBLOS ORIGINARIOS DE FORMOSA - Recurso Educativo Digital
+===========================================================
+
+CÓMO ABRIRLA
+  Hacé doble clic en "index.html". Se abre en el navegador y funciona sin servidor.
+  (El diccionario cultural local funciona sin internet; la búsqueda en diccionarios externos necesita conexión.)
+
+CÓMO EDITARLA CON VISUAL STUDIO CODE
+  1) Abrí VS Code > Archivo > Abrir carpeta > elegí esta carpeta.
+  2) Tocá los archivos y recargá el navegador (F5) para ver los cambios.
+
+QUÉ HAY EN CADA ARCHIVO
+  index.html        Estructura y textos de la página (secciones, pueblos, fuentes, créditos).
+  css/style.css     Todo el diseño: colores, tamaños, animaciones, versión para celular.
+  js/datos.js       Datos: puntos del mapa, materiales de la galería, diccionario cultural y preguntas del quiz.
+  js/mapa.js        Mapa interactivo: usa de fondo el mapa del proyecto (img/mapa-formosa.jpg) con puntos, zoom, filtros y panel.
+  js/mapa-real.js   Mapa real con zoom (botón "Mapa real"): territorios, comunidades, ríos y ciudades. Funciona sin internet.
+                    Con internet, los fondos "Calles" y "Satélite" (Esri) guardan en la memoria del navegador lo que se mira, para verlo sin conexión.
+  js/mapa-real-datos.js  Datos geográficos guardados (límites y ríos de Natural Earth + comunidades del mapa del proyecto).
+  lib/leaflet/      Librería de mapas Leaflet 1.9.4 (guardada en la carpeta para que funcione sin internet).
+  js/pueblos.js     Pestañas, alimentos qom, estaciones wichí, calendario pilagá y relato.
+  js/galeria.js     Galería de materiales con flechas y dibujos SVG.
+  js/diccionario.js Diccionario general sin conexión (significado de las palabras de la página).
+  js/glosario.js    Buscador del diccionario: busca sin internet (también palabras conjugadas) y guarda lo que encuentra en internet.
+  js/quiz.js        Quiz de 10 preguntas.
+  js/main.js        Menú, animaciones al hacer scroll, contadores, acordeones y visor de fotos.
+  img/              Fotos de la carpeta de investigación.
+  img/galeria/      Fotos de la Galería cultural (Wikimedia Commons, licencias libres; autor y licencia en cada foto).
+
+COSAS FÁCILES DE CAMBIAR
+  - Agregar una palabra al diccionario cultural: js/datos.js > GLOSARIO (["Palabra","Categoría","Definición","pueblo"]).
+  - Agregar una palabra al diccionario general: js/diccionario.js (["Palabra","Significado"]).
+  - Agregar un material a la galería: js/datos.js > MATERIALES.
+  - Cambiar preguntas del quiz: js/datos.js > PREGUNTAS.
+  - Cambiar los textos de las fotos: index.html, sección "fotos" (alt y data-leyenda).
+  - Cambiar colores: css/style.css, bloque ":root" del principio.
+
+PARA PUBLICARLA
+  Subí la carpeta completa a Netlify (arrastrar y soltar) o a GitHub Pages para tener un enlace.
