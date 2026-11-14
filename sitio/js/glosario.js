@@ -427,8 +427,12 @@
     }
 
     if (!hubo) {
+      /* Si las tres búsquedas fallaron por error de red (no por "no existe"), se avisa que no hay conexión */
+      const sinRed = [dic, wiki, wikc].every((r) => r.status === "rejected");
       resultadoInternet.appendChild(
-        crear("p", "internet__aviso", "No pudimos encontrar el significado de “" + palabra + "”. Puede que esté escrita de otra forma, que sea una palabra muy específica o que falle la conexión. Probá con otra escritura o sin tildes.")
+        crear("p", "internet__aviso", sinRed
+          ? "Sin conexión: no se pudo consultar internet. El diccionario de la página sigue funcionando sin internet; probá de nuevo cuando vuelvas a estar en línea."
+          : "No pudimos encontrar el significado de “" + palabra + "”. Puede que esté escrita de otra forma o que sea una palabra muy específica. Probá con otra escritura o sin tildes.")
       );
     }
   }

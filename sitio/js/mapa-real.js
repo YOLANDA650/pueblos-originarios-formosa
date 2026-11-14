@@ -277,11 +277,27 @@
       }
     });
     new Aviso({ position: "bottomleft" }).addTo(mapa);
+    let volviendoAlDibujo = false;
     mapa.on("baselayerchange", (e) => {
+      if (volviendoAlDibujo) return;
       const conMemoria = e.layer === fondoCalles || e.layer === fondoSatelite;
       if (contador) contador.hidden = !conMemoria;
       if (conMemoria && !navigator.onLine) {
-        contador.textContent = "Sin conexión: se ven solo las partes del mapa que ya están guardadas.";
+        /* Sin internet: si no hay nada guardado, se vuelve al dibujo para no dejar el mapa en blanco */
+        memoria.contar().then((n) => {
+          if (n > 0) {
+            contador.textContent = "Sin conexión: se ven solo las partes del mapa que ya están guardadas.";
+            return;
+          }
+          volviendoAlDibujo = true;
+          mapa.removeLayer(e.layer);
+          fondoDibujo.addTo(mapa);
+          volviendoAlDibujo = false;
+          fondoDibujo.eachLayer((l) => { if (l.bringToBack) l.bringToBack(); });
+          contador.hidden = false;
+          contador.textContent = "Sin conexión: este fondo necesita internet la primera vez. Se muestra el dibujo del mapa, que funciona sin internet.";
+          setTimeout(() => { if (mapa.hasLayer(fondoDibujo)) contador.hidden = true; }, 7000);
+        });
       } else {
         actualizarContador();
       }

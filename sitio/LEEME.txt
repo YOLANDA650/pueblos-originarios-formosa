@@ -5,6 +5,11 @@ CÓMO ABRIRLA
   Hacé doble clic en "index.html". Se abre en el navegador y funciona sin servidor.
   (El diccionario cultural local funciona sin internet; la búsqueda en diccionarios externos necesita conexión.)
 
+FUNCIONA SIN INTERNET
+  Todo el sitio (mapa, fotos, diccionario, quiz) funciona sin conexión. Solo dos cosas usan internet y son opcionales:
+  los fondos "Calles/Satélite" del mapa real (sin conexión se muestra el dibujo del mapa) y la búsqueda de palabras
+  que no están en el diccionario (sin conexión aparece un aviso claro).
+
 CÓMO EDITARLA CON VISUAL STUDIO CODE
   1) Abrí VS Code > Archivo > Abrir carpeta > elegí esta carpeta.
   2) Tocá los archivos y recargá el navegador (F5) para ver los cambios.
